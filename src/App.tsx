@@ -31,9 +31,11 @@ const App = () => {
   };
 
   return (
-    <div className='container vh-100 p-3 row'>
+    <div className='container'>
+      <div className='vh-100 p-3 row'>
       <SideBar countries={countries} onCountryDetails={onCountryDetails}/>
       {selectedCountry ? <CountryDetails country={selectedCountry}/> : null}
+      </div>
     </div>
   );
 };
