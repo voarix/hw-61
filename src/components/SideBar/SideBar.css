@@ -1,5 +1,7 @@
-.li-country{
-  transition: color 0.1s ease, text-decoration 0.1s ease;
+.li-country {
+  transition:
+    color 0.1s ease,
+    text-decoration 0.1s ease;
 }
 
 .li-country:hover {

@@ -7,22 +7,26 @@ interface Props {
   onCountryDetails: (alphaCode: string) => void;
 }
 
-const SideBar: React.FC<Props> = ({countries, onCountryDetails}) => {
-  console.log('render');
-
-  return (
-    <div className="col-4 h-100 d-flex flex-column">
-      <div className="overflow-auto border p-2">
-        <ul className="list-unstyled fs-5 lh-lg">
-          {countries.map((country, index) => (
-            <li key={country.alpha3Code + index} className='li-country' onClick={() => onCountryDetails(country.alpha3Code)}>
-              {country.name}
-            </li>
-          ))}
-        </ul>
+const SideBar: React.FC<Props> = React.memo(
+  ({ countries, onCountryDetails }) => {
+    return (
+      <div className="col-4 h-100 d-flex flex-column">
+        <div className="overflow-auto border p-2">
+          <ul className="list-unstyled fs-5 lh-lg">
+            {countries.map((country, index) => (
+              <li
+                key={country.alpha3Code + index}
+                className="li-country"
+                onClick={() => onCountryDetails(country.alpha3Code)}
+              >
+                {country.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  },
+);
 
 export default SideBar;
